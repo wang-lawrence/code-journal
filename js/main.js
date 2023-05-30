@@ -12,24 +12,26 @@ function viewImage(event) {
 
 $form.addEventListener('submit', saveEntry);
 
-let entryObjects = [];
-const previousEntryObjects = localStorage.getItem(entryObjects);
-let nextEntryId = 1;
-if (previousEntryObjects != null) {
-  entryObjects = JSON.parse(previousEntryObjects);
-  nextEntryId = entryObjects[0].nextEntryId + 1;
-}
+// const previousDataModel = localStorage.getItem(data);
+// const entries = data.entries;
+// const nextEntryId = data.nextEntryId;
+
+// if (previousDataModel != null) {
+//   data = JSON.parse(previousDataModel);
+//   entries = data.entries;
+//   nextEntryId = data.nextEntryId + 1;
+// }
 
 function saveEntry(event) {
   event.preventDefault();
   const entryObj = {
-    entryId: nextEntryId,
+    entryId: data.nextEntryId,
     title: $title.value,
     imageUrl: $img.src,
     notes: $notes.value
   };
-  entryObjects.unshift(entryObj);
+  data.entries.unshift(entryObj);
   $img.src = 'images/placeholder-image-square.jpg';
-  nextEntryId++;
+  data.nextEntryId++;
   $form.reset();
 }
