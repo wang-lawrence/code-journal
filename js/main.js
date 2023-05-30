@@ -8,19 +8,10 @@ $url.addEventListener('input', viewImage);
 
 function viewImage(event) {
   $img.src = event.target.value;
+  $img.classList.replace('object-cover', 'object-contain');
 }
 
 $form.addEventListener('submit', saveEntry);
-
-// const previousDataModel = localStorage.getItem(data);
-// const entries = data.entries;
-// const nextEntryId = data.nextEntryId;
-
-// if (previousDataModel != null) {
-//   data = JSON.parse(previousDataModel);
-//   entries = data.entries;
-//   nextEntryId = data.nextEntryId + 1;
-// }
 
 function saveEntry(event) {
   event.preventDefault();
@@ -32,6 +23,7 @@ function saveEntry(event) {
   };
   data.entries.unshift(entryObj);
   $img.src = 'images/placeholder-image-square.jpg';
+  $img.classList.replace('object-contain', 'object-cover');
   data.nextEntryId++;
   $form.reset();
 }
