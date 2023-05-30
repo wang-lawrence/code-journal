@@ -16,6 +16,10 @@ textarea {
   margin-top: 1rem;
 }
 
+.margin-bottom-rem {
+  margin-bottom: 1rem;
+}
+
 .width-full {
   width: 100%;
 }
@@ -33,10 +37,10 @@ textarea {
   padding-bottom: 0.5rem;
 }
 
-.padding-top-bottom-tenth-rem {
-  padding-top: 0.25rem;
-  padding-bottom: 0.25rem;
-  padding-left: 0.3rem;
+.padding-top-bottom-half-rem {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
 }
 
 .padding-left {
@@ -62,11 +66,6 @@ textarea {
 .font-size-1-rem {
   font-size: 1rem;
 }
-
-/*
-.font-weight {
-  font-weight: lighter;
-} */
 
 .height-image {
   height: 23rem;
