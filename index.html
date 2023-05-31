@@ -21,15 +21,18 @@
 <body>
   <header class="background-purple"">
     <div class="container">
-      <div class="row align-items">
-        <div class="column-full padding-top-bottom-halfrem white-text font-proza font-size-1half-rem">
+      <div class="row nowrap align-items">
+        <div class="padding-side-3q-rem padding-top-bottom-halfrem white-text font-proza font-size-1q-rem">
           <p class="margin-0">Code Journal</p>
+        </div>
+        <div class="padding-side-3q-rem padding-top-bottom white-text font-proza font-size-1-rem">
+          <a id="entries-anchor" data-view="entries">Entries</a>
         </div>
       </div>
     </div>
   </header>
   <main class="container">
-    <div data-view="entry-form">
+    <div data-view="entry-form" id="entry-form">
       <form class="row font-proza">
         <div class="column-full">
           <h1>New Entry</h1>
@@ -54,7 +57,21 @@
         </div>
       </form>
     </div>
-    <div data-view="entries" class="hidden"></div>
+    <div data-view="entries" id="entries" class="hidden">
+      <div class="row nowrap font-proza align-items ">
+        <div class="column-half">
+          <h1>Entries</h1>
+        </div>
+        <div class="column-half">
+          <div class="row justify-right align-items">
+            <button type="button" data-view="entry-form" id="entry-form-anchor" class="background-purple white-text font-proza font-size-1-rem border-radius-5px border-none padding-new-button">NEW</button>
+          </div>
+        </div>
+      </div>
+      <p class="font-proza font-size-1-rem text-center" id="no-entries">No entries have been recorded.</p>
+      <ul class="font-proza font-size-1-rem">
+      </ul>
+    </div>
   </main>
   <script src="js/data.js"></script>
   <script src="js/main.js"></script>
