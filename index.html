@@ -29,7 +29,7 @@
     </div>
   </header>
   <main class="container">
-    <div data-view="entry-form">
+    <div data-view="entry-form" class="hidden">
       <form class="row font-proza">
         <div class="column-full">
           <h1>New Entry</h1>
@@ -55,13 +55,39 @@
       </form>
     </div>
     <div data-view="entries" class="">
-      <ul>
+      <div class="row nowrap font-proza align-items justify-space-bw">
+        <div class="column-half">
+          <h1>Entries</h1>
+        </div>
+        <div class="column-half">
+          <div class="row justify-right align-items">
+            <button type="button" class="background-purple white-text font-proza font-size-1-rem border-radius-5px border-none padding-new-button">NEW</button>
+          </div>
+        </div>
+      </div>
+      <ul class="font-proza font-size-1-rem">
         <li>
-          <div>
-
+          <div class="row">
+            <div class="column-half">
+              <img src="https://archives.bulbagarden.net/media/upload/0/09/0248Tyranitar.png" alt="Tyranitar">
+            </div>
+            <div class="column-half">
+              <h2>Tyranitar</h2>
+              <p>rawr</p>
+            </div>
           </div>
         </li>
-        <li></li>
+        <li>
+          <div class="row">
+            <div class="column-half">
+              <img src="https://archives.bulbagarden.net/media/upload/4/4c/0133Eevee.png" alt="Tyranitar">
+            </div>
+            <div class="column-half">
+              <h2>Tyranitar</h2>
+              <p>rawr</p>
+            </div>
+          </div>
+        </li>
       </ul>
     </div>
   </main>

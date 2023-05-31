@@ -13,6 +13,10 @@
   flex-wrap: wrap;
 }
 
+.row.nowrap {
+  flex-wrap: nowrap;
+}
+
 .column-full,
 .column-half {
   width: 100%;
