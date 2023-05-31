@@ -80,7 +80,7 @@ function renderAllEntries(event) {
 }
 
 function toggleNoEntries() {
-  $noEntries.classList.add('hidden');
+  $noEntries.classList.toggle('hidden');
 }
 
 $entriesAnchor.addEventListener('click', toggleEntryView);
