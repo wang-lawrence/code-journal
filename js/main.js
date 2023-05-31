@@ -5,8 +5,6 @@ const $img = document.querySelector('img');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('ul');
 const $noEntries = document.querySelector('#no-entries');
-// const $entryForm = document.querySelector('[data-view = entry-form]');
-// const $entries = document.querySelector('[data-view = entries]');
 
 $url.addEventListener('input', viewImage);
 
@@ -78,6 +76,15 @@ function toggleNoEntries(entriesCount) {
   }
 }
 
-// function viewSwap (dataView) {
+// const $entryForm = document.querySelector('[data-view = entry-form]');
+// const $entries = document.querySelector('[data-view = entries]');
 
+// function viewSwap(dataView) {
+//   if (dataView === 'entry-form') {
+//     $entries.classList.add('hidden');
+//     $entryForm.classList.remove('hidden');
+//   } else {
+//     $entries.classList.remove('hidden');
+//     $entryForm.classList.add('hidden');
+//   }
 // }
