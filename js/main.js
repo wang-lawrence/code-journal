@@ -28,13 +28,13 @@ function saveEntry(event) {
     notes: $notes.value
   };
   data.entries.unshift(entryObj);
-  $ul.prepend(renderEntry(entryObj));
-  viewSwap('entries');
-  toggleNoEntries(1);
   $img.src = 'images/placeholder-image-square.jpg';
   $img.classList.replace('object-contain', 'object-cover');
   data.nextEntryId++;
   $form.reset();
+  $ul.prepend(renderEntry(entryObj));
+  viewSwap('entries');
+  toggleNoEntries(1);
 }
 
 function renderEntry(entry) {
@@ -73,6 +73,8 @@ function renderAllEntries(event) {
   for (let i = 0; i < entriesCount; i++) {
     $ul.append(renderEntry(data.entries[i]));
   }
+
+  viewSwap(data.view);
 }
 
 function toggleNoEntries(entriesCount) {
