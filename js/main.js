@@ -4,6 +4,9 @@ const $notes = document.querySelector('#inputNotes');
 const $img = document.querySelector('img');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('ul');
+const $noEntries = document.querySelector('#no-entries');
+// const $entryForm = document.querySelector('[data-view = entry-form]');
+// const $entries = document.querySelector('[data-view = entries]');
 
 $url.addEventListener('input', viewImage);
 
@@ -58,7 +61,23 @@ document.addEventListener('DOMContentLoaded', renderAllEntries);
 
 function renderAllEntries(event) {
 
-  for (let i = 0; i < data.entries.length; i++) {
+  const entriesCount = data.entries.length;
+
+  toggleNoEntries(entriesCount);
+
+  for (let i = 0; i < entriesCount; i++) {
     $ul.append(renderEntry(data.entries[i]));
   }
 }
+
+function toggleNoEntries(entries) {
+  if (entries.length === 0) {
+    $noEntries.classList.add('hidden');
+  } else {
+    $noEntries.classList.remove('hidden');
+  }
+}
+
+// function viewSwap (dataView) {
+
+// }
