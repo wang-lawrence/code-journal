@@ -5,6 +5,10 @@ const $img = document.querySelector('img');
 const $form = document.querySelector('form');
 const $ul = document.querySelector('ul');
 const $noEntries = document.querySelector('#no-entries');
+const $entriesAnchor = document.querySelector('#entries-anchor');
+const $entryFormAnchor = document.querySelector('#entry-form-anchor');
+const $entryForm = document.querySelector('#entry-form');
+const $entries = document.querySelector('#entries');
 
 $url.addEventListener('input', viewImage);
 
@@ -76,15 +80,20 @@ function toggleNoEntries(entriesCount) {
   }
 }
 
-// const $entryForm = document.querySelector('[data-view = entry-form]');
-// const $entries = document.querySelector('[data-view = entries]');
+$entriesAnchor.addEventListener('click', toggleEntryView);
+$entryFormAnchor.addEventListener('click', toggleEntryView);
 
-// function viewSwap(dataView) {
-//   if (dataView === 'entry-form') {
-//     $entries.classList.add('hidden');
-//     $entryForm.classList.remove('hidden');
-//   } else {
-//     $entries.classList.remove('hidden');
-//     $entryForm.classList.add('hidden');
-//   }
-// }
+function toggleEntryView(event) {
+  const dataView = event.target.getAttribute('data-view');
+  viewSwap(dataView);
+}
+
+function viewSwap(dataView) {
+  if (dataView === 'entry-form') {
+    $entries.classList.add('hidden');
+    $entryForm.classList.remove('hidden');
+  } else {
+    $entries.classList.remove('hidden');
+    $entryForm.classList.add('hidden');
+  }
+}

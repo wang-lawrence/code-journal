@@ -58,6 +58,11 @@ ul {
   padding-left: 1rem;
 }
 
+.padding-side-3q-rem {
+  padding-left: 0.75rem;
+  padding-right: 0.75rem;
+}
+
 .padding-new-button {
   padding: 0.4rem 0.6rem 0.3rem;
 }
@@ -76,6 +81,10 @@ ul {
 
 .font-size-1half-rem {
   font-size: 1.5rem;
+}
+
+.font-size-1q-rem {
+  font-size: 1.25rem;
 }
 
 .font-size-1-rem {
@@ -113,7 +122,3 @@ ul {
 .text-center {
   text-align: center;
 }
-
-/* .justify-space-bw {
-  justify-content: space-around;
-} */
