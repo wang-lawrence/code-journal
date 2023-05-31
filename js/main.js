@@ -70,11 +70,11 @@ function renderAllEntries(event) {
   }
 }
 
-function toggleNoEntries(entries) {
-  if (entries.length === 0) {
-    $noEntries.classList.add('hidden');
-  } else {
+function toggleNoEntries(entriesCount) {
+  if (entriesCount === 0) {
     $noEntries.classList.remove('hidden');
+  } else {
+    $noEntries.classList.add('hidden');
   }
 }
 
