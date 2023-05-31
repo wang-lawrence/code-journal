@@ -27,3 +27,30 @@ function saveEntry(event) {
   data.nextEntryId++;
   $form.reset();
 }
+
+function renderEntry(entry) {
+  const $li = document.createElement('li');
+  const $div1 = document.createElement('div');
+  const $div2 = document.createElement('div');
+  const $div3 = document.createElement('div');
+  const $img = document.createElement('img');
+  const $h2 = document.createElement('h2');
+  const $p = document.createElement('p');
+
+  $div1.setAttribute('class', 'row');
+  $div2.setAttribute('class', 'column-half');
+  $div3.setAttribute('class', 'column-half');
+  $img.setAttribute('src', entry.imageUrl);
+  $img.setAttribute('alt', entry.title);
+  $h2.textContent = entry.title;
+  $p.textContent = entry.notes;
+
+  $li.append($div1);
+  $div1.append($div2, $div3);
+  $div2.append($img);
+  $div3.append($h2, $p);
+
+  return $li;
+}
+
+renderEntry(data.entry);
