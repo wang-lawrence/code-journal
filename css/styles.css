@@ -25,12 +25,18 @@ input {
 }
 
 button:hover,
-input:hover {
+input[type="submit"]:hover {
   color: rgb(86, 43, 128);
   background-color: white;
   border: 0.1px solid rgb(86, 43, 128);
   box-shadow: 0 1rem 1rem -1rem black;
   cursor: pointer;
+}
+
+textarea:hover,
+input:hover {
+  border: 1px solid black;
+  box-shadow: 0 1rem 1rem -1rem black;
 }
 
 .margin-0 {
