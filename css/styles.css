@@ -110,6 +110,10 @@ ul {
   justify-content: right;
 }
 
+.text-center {
+  text-align: center;
+}
+
 /* .justify-space-bw {
   justify-content: space-around;
 } */
