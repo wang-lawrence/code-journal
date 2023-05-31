@@ -28,6 +28,9 @@ function saveEntry(event) {
     notes: $notes.value
   };
   data.entries.unshift(entryObj);
+  $ul.prepend(renderEntry(entryObj));
+  viewSwap('entries');
+  toggleNoEntries(1);
   $img.src = 'images/placeholder-image-square.jpg';
   $img.classList.replace('object-contain', 'object-cover');
   data.nextEntryId++;
@@ -92,8 +95,10 @@ function viewSwap(dataView) {
   if (dataView === 'entry-form') {
     $entries.classList.add('hidden');
     $entryForm.classList.remove('hidden');
+    data.view = 'entry-form';
   } else {
     $entries.classList.remove('hidden');
     $entryForm.classList.add('hidden');
+    data.view = 'entries';
   }
 }
