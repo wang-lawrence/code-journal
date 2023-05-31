@@ -19,6 +19,20 @@ ul {
   list-style-type: none;
 }
 
+button,
+input {
+  transition: all 0.1s;
+}
+
+button:hover,
+input:hover {
+  color: rgb(86, 43, 128);
+  background-color: white;
+  border: 0.1px solid rgb(86, 43, 128);
+  box-shadow: 0 1rem 1rem -1rem black;
+  cursor: pointer;
+}
+
 .margin-0 {
   margin: 0;
 }
@@ -121,4 +135,9 @@ ul {
 
 .text-center {
   text-align: center;
+}
+
+#entries-anchor:hover {
+  cursor: pointer;
+  text-decoration: underline;
 }
