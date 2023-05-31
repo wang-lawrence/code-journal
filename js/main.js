@@ -3,6 +3,7 @@ const $url = document.querySelector('#inputUrl');
 const $notes = document.querySelector('#inputNotes');
 const $img = document.querySelector('img');
 const $form = document.querySelector('form');
+const $ul = document.querySelector('ul');
 
 $url.addEventListener('input', viewImage);
 
@@ -53,4 +54,11 @@ function renderEntry(entry) {
   return $li;
 }
 
-renderEntry(data.entry);
+document.addEventListener('DOMContentLoaded', renderAllEntries);
+
+function renderAllEntries(event) {
+
+  for (let i = 0; i < data.entries.length; i++) {
+    $ul.append(renderEntry(data.entries[i]));
+  }
+}
