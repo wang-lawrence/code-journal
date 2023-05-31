@@ -34,7 +34,7 @@ function saveEntry(event) {
   $form.reset();
   $ul.prepend(renderEntry(entryObj));
   viewSwap('entries');
-  toggleNoEntries(1);
+  toggleNoEntries();
 }
 
 function renderEntry(entry) {
@@ -68,7 +68,9 @@ function renderAllEntries(event) {
 
   const entriesCount = data.entries.length;
 
-  toggleNoEntries(entriesCount);
+  if (entriesCount > 0) {
+    toggleNoEntries();
+  }
 
   for (let i = 0; i < entriesCount; i++) {
     $ul.append(renderEntry(data.entries[i]));
@@ -77,12 +79,8 @@ function renderAllEntries(event) {
   viewSwap(data.view);
 }
 
-function toggleNoEntries(entriesCount) {
-  if (entriesCount === 0) {
-    $noEntries.classList.remove('hidden');
-  } else {
-    $noEntries.classList.add('hidden');
-  }
+function toggleNoEntries() {
+  $noEntries.classList.add('hidden');
 }
 
 $entriesAnchor.addEventListener('click', toggleEntryView);

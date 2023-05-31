@@ -17,6 +17,7 @@ textarea {
 
 ul {
   list-style-type: none;
+  padding: 0 0.75rem;
 }
 
 button,
