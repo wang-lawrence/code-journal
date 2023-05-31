@@ -1,0 +1,103 @@
+img {
+  width: 100%;
+  height: 100%;
+}
+
+.object-contain {
+  object-fit: contain;
+}
+
+.object-cover {
+  object-fit: cover;
+}
+
+textarea {
+  resize: none;
+}
+
+.margin-0 {
+  margin: 0;
+}
+
+.margin-top-rem {
+  margin-top: 1rem;
+}
+
+.margin-bottom-rem {
+  margin-bottom: 1rem;
+}
+
+.width-full {
+  width: 100%;
+}
+
+.align-items {
+  align-items: center;
+}
+
+.padding-one-two-rem {
+  padding: 0.4rem 1rem;
+}
+
+.padding-top-bottom-halfrem {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.padding-top-bottom-half-rem {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-left: 0.5rem;
+}
+
+.padding-left {
+  padding-left: 1rem;
+}
+
+.background-purple {
+  background-color: rgb(85, 43, 129);
+}
+
+.white-text {
+  color: white;
+}
+
+.font-proza {
+  font-family: "Proza Libre", sans-serif;
+}
+
+.font-size-1half-rem {
+  font-size: 1.5rem;
+}
+
+.font-size-1-rem {
+  font-size: 1rem;
+}
+
+.height-image {
+  height: 23rem;
+}
+
+.input-height {
+  height: 2.5rem;
+}
+
+.border-radius-5px {
+  border-radius: 5px;
+}
+
+.border-solid {
+  border-style: solid;
+}
+
+.border-gray {
+  border-color: rgb(197, 197, 197);
+}
+
+.border-none {
+  border-style: none;
+}
+
+.justify-right {
+  justify-content: right;
+}
