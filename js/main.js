@@ -37,9 +37,7 @@ function saveEntry(event) {
     $form.reset();
     $ul.prepend(renderEntry(entryObj));
     viewSwap('entries');
-    if (data.entries.length === 1) {
-      toggleNoEntries();
-    }
+    toggleNoEntries();
   } else {
     const entryObj = {
       entryId: data.editing.entryId,
@@ -99,9 +97,7 @@ function renderAllEntries(event) {
 
   const entriesCount = data.entries.length;
 
-  if (entriesCount > 0) {
-    toggleNoEntries();
-  }
+  toggleNoEntries();
 
   for (let i = 0; i < entriesCount; i++) {
     $ul.append(renderEntry(data.entries[i]));
@@ -111,7 +107,9 @@ function renderAllEntries(event) {
 }
 
 function toggleNoEntries() {
-  $noEntries.classList.toggle('hidden');
+  if (data.entries.length === 1) {
+    $noEntries.classList.toggle('hidden');
+  }
 }
 
 $entriesAnchor.addEventListener('click', toggleEntryView);
