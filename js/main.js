@@ -42,22 +42,33 @@ function renderEntry(entry) {
   const $div1 = document.createElement('div');
   const $div2 = document.createElement('div');
   const $div3 = document.createElement('div');
+  const $div4 = document.createElement('div');
   const $img = document.createElement('img');
   const $h2 = document.createElement('h2');
+  const $i = document.createElement('i');
   const $p = document.createElement('p');
 
+  $li.setAttribute('data-entry-id', entry.entryId);
   $div1.setAttribute('class', 'row');
   $div2.setAttribute('class', 'column-half');
   $div3.setAttribute('class', 'column-half');
+  $div4.setAttribute('class', 'row justify-space-bw align-items');
+  // $div4.setAttribute('class', 'justify-space-bw');
+  // $div4.setAttribute('class', 'align-items');
   $img.setAttribute('src', entry.imageUrl);
   $img.setAttribute('alt', entry.title);
   $h2.textContent = entry.title;
+  $i.setAttribute('class', 'fa-solid fa-pen fa-xl icon');
+  // $i.setAttribute('class', 'fa-pen');
+  // $i.setAttribute('class', 'fa-xl');
+  // $i.setAttribute('class', 'icon');
   $p.textContent = entry.notes;
 
   $li.append($div1);
   $div1.append($div2, $div3);
   $div2.append($img);
-  $div3.append($h2, $p);
+  $div3.append($div4, $p);
+  $div4.append($h2, $i);
 
   return $li;
 }
