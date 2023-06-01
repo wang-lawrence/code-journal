@@ -35,7 +35,7 @@
     <div data-view="entry-form" id="entry-form">
       <form class="row font-proza">
         <div class="column-full">
-          <h1>New Entry</h1>
+          <h1><span data-form-type="new-entry">New Entry</span><span class="hidden" data-form-type="edit-entry">Edit Entry </span></h1>
         </div>
         <div class="column-half font-proza height-image margin-bottom-rem border-radius">
           <img src="images/placeholder-image-square.jpg" alt="placeholder-image" class="object-cover">
@@ -64,7 +64,7 @@
         </div>
         <div class="column-half">
           <div class="row justify-right align-items">
-            <button type="button" data-view="entry-form" id="entry-form-anchor" class="background-purple white-text font-proza font-size-1-rem border-radius-5px border-none padding-new-button">NEW</button>
+            <button type="button" data-view="entry-form" data-form-type="new-entry" id="entry-form-anchor" class="background-purple white-text font-proza font-size-1-rem border-radius-5px border-none padding-new-button">NEW</button>
           </div>
         </div>
       </div>

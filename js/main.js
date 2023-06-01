@@ -9,6 +9,8 @@ const $entriesAnchor = document.querySelector('#entries-anchor');
 const $entryFormAnchor = document.querySelector('#entry-form-anchor');
 const $entryForm = document.querySelector('#entry-form');
 const $entries = document.querySelector('#entries');
+const $newEntryHeader = document.querySelector('span[data-form-type="new-entry"]');
+const $editEntryHeader = document.querySelector('span[data-form-type="edit-entry"]');
 
 $url.addEventListener('input', viewImage);
 
@@ -24,7 +26,7 @@ function saveEntry(event) {
   const entryObj = {
     entryId: data.nextEntryId,
     title: $title.value,
-    imageUrl: $img.src,
+    imageUrl: $url.value,
     notes: $notes.value
   };
   data.entries.unshift(entryObj);
@@ -34,7 +36,9 @@ function saveEntry(event) {
   $form.reset();
   $ul.prepend(renderEntry(entryObj));
   viewSwap('entries');
-  toggleNoEntries();
+  if (data.nextEntryId === 2) {
+    toggleNoEntries();
+  }
 }
 
 function renderEntry(entry) {
@@ -57,6 +61,7 @@ function renderEntry(entry) {
   // $div4.setAttribute('class', 'align-items');
   $img.setAttribute('src', entry.imageUrl);
   $img.setAttribute('alt', entry.title);
+  $img.setAttribute('class', 'object-contain');
   $h2.textContent = entry.title;
   $i.setAttribute('class', 'fa-solid fa-pen fa-xl icon');
   // $i.setAttribute('class', 'fa-pen');
@@ -111,5 +116,30 @@ function viewSwap(dataView) {
     $entries.classList.remove('hidden');
     $entryForm.classList.add('hidden');
     data.view = 'entries';
+  }
+}
+
+$ul.addEventListener('click', editEntry);
+
+function editEntry(event) {
+  viewSwap('entry-form');
+  const dataEntryId = (event.target.closest('li').getAttribute('data-entry-id'));
+  const entryIdObj = data.entries[data.entries.length - dataEntryId];
+  data.editing = entryIdObj;
+  $title.value = data.editing.title;
+  $url.value = data.editing.imageUrl;
+  $notes.value = data.editing.notes;
+  $img.src = $url.value;
+  $img.classList.replace('object-cover', 'object-contain');
+  formTypeSwap(data.editing);
+}
+
+function formTypeSwap(editData) {
+  if (editData != null) {
+    $newEntryHeader.classList.add('hidden');
+    $editEntryHeader.classList.remove('hidden');
+  } else {
+    $newEntryHeader.classList.remove('hidden');
+    $editEntryHeader.classList.add('hidden');
   }
 }
