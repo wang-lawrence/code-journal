@@ -37,7 +37,7 @@ function saveEntry(event) {
     $form.reset();
     $ul.prepend(renderEntry(entryObj));
     viewSwap('entries');
-    if (data.nextEntryId === 2) {
+    if (data.entries.length === 1) {
       toggleNoEntries();
     }
   } else {
@@ -49,11 +49,9 @@ function saveEntry(event) {
     };
     const entryObjIndex = data.entries.length - entryObj.entryId;
     const $entryListItem = document.querySelector(`[data-entry-id="${entryObj.entryId}"]`);
-    // console.dir($entryListItem);
     data.entries.splice(entryObjIndex, 1, entryObj);
     $img.src = 'images/placeholder-image-square.jpg';
     $img.classList.replace('object-contain', 'object-cover');
-
     $entryListItem.replaceWith(renderEntry(entryObj));
     viewSwap('entries');
     data.editing = null;
