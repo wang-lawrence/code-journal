@@ -12,6 +12,9 @@ const $entries = document.querySelector('#entries');
 const $newEntryHeader = document.querySelector('span[data-form-type="new-entry"]');
 const $editEntryHeader = document.querySelector('span[data-form-type="edit-entry"]');
 const $deleteEntry = document.querySelector('a[data-form-type="edit-entry"]');
+// const $popup = document.querySelector('#popup');
+// const $cancelButton = document.querySelector('#cancel-button');
+// const $confirmButton = document.querySelector('#confirm-button');
 
 $url.addEventListener('input', viewImage);
 
