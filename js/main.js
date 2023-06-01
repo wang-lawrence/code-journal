@@ -23,21 +23,42 @@ $form.addEventListener('submit', saveEntry);
 
 function saveEntry(event) {
   event.preventDefault();
-  const entryObj = {
-    entryId: data.nextEntryId,
-    title: $title.value,
-    imageUrl: $url.value,
-    notes: $notes.value
-  };
-  data.entries.unshift(entryObj);
-  $img.src = 'images/placeholder-image-square.jpg';
-  $img.classList.replace('object-contain', 'object-cover');
-  data.nextEntryId++;
-  $form.reset();
-  $ul.prepend(renderEntry(entryObj));
-  viewSwap('entries');
-  if (data.nextEntryId === 2) {
-    toggleNoEntries();
+  if (data.editing === null) {
+    const entryObj = {
+      entryId: data.nextEntryId,
+      title: $title.value,
+      imageUrl: $url.value,
+      notes: $notes.value
+    };
+    data.entries.unshift(entryObj);
+    $img.src = 'images/placeholder-image-square.jpg';
+    $img.classList.replace('object-contain', 'object-cover');
+    data.nextEntryId++;
+    $form.reset();
+    $ul.prepend(renderEntry(entryObj));
+    viewSwap('entries');
+    if (data.nextEntryId === 2) {
+      toggleNoEntries();
+    }
+  } else {
+    const entryObj = {
+      entryId: data.editing.entryId,
+      title: $title.value,
+      imageUrl: $url.value,
+      notes: $notes.value
+    };
+    const entryObjIndex = data.entries.length - entryObj.entryId;
+    const $entryListItem = document.querySelector(`[data-entry-id="${entryObj.entryId}"]`);
+    // console.dir($entryListItem);
+    data.entries.splice(entryObjIndex, 1, entryObj);
+    $img.src = 'images/placeholder-image-square.jpg';
+    $img.classList.replace('object-contain', 'object-cover');
+
+    $entryListItem.replaceWith(renderEntry(entryObj));
+    viewSwap('entries');
+    data.editing = null;
+    formTypeSwap(data.editing);
+    $form.reset();
   }
 }
 
@@ -53,20 +74,16 @@ function renderEntry(entry) {
   const $p = document.createElement('p');
 
   $li.setAttribute('data-entry-id', entry.entryId);
+  $li.setAttribute('class', 'margin-bottom-rem');
   $div1.setAttribute('class', 'row');
   $div2.setAttribute('class', 'column-half');
   $div3.setAttribute('class', 'column-half');
   $div4.setAttribute('class', 'row justify-space-bw align-items');
-  // $div4.setAttribute('class', 'justify-space-bw');
-  // $div4.setAttribute('class', 'align-items');
   $img.setAttribute('src', entry.imageUrl);
   $img.setAttribute('alt', entry.title);
   $img.setAttribute('class', 'object-contain');
   $h2.textContent = entry.title;
   $i.setAttribute('class', 'fa-solid fa-pen fa-xl icon');
-  // $i.setAttribute('class', 'fa-pen');
-  // $i.setAttribute('class', 'fa-xl');
-  // $i.setAttribute('class', 'icon');
   $p.textContent = entry.notes;
 
   $li.append($div1);
