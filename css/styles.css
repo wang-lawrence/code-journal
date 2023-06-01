@@ -40,6 +40,12 @@ input:hover {
   box-shadow: 0 1rem 1rem -1rem black;
 }
 
+a[data-form-type="edit-entry"]:hover {
+  font-weight: bold;
+  cursor: pointer;
+  color: rgb(128, 12, 12);
+}
+
 .margin-0 {
   margin: 0;
 }
@@ -94,6 +100,14 @@ input:hover {
 
 .white-text {
   color: white;
+}
+
+.orange-text {
+  color: rgb(223, 63, 63);
+}
+
+.underline {
+  text-decoration: underline;
 }
 
 .font-proza {
