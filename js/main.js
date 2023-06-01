@@ -111,8 +111,10 @@ function renderAllEntries(event) {
 }
 
 function toggleNoEntries() {
-  if (data.entries.length === 1) {
-    $noEntries.classList.toggle('hidden');
+  if (data.entries.length === 0) {
+    $noEntries.classList.remove('hidden');
+  } else {
+    $noEntries.classList.add('hidden');
   }
 }
 
@@ -141,7 +143,13 @@ $ul.addEventListener('click', editEntry);
 function editEntry(event) {
   viewSwap('entry-form');
   const dataEntryId = (event.target.closest('li').getAttribute('data-entry-id'));
-  const entryIdObj = data.entries[data.entries.length - dataEntryId];
+  let entryIdObj = {};
+
+  for (let i = 0; i < data.entries.length; i++) {
+    if (data.entries[i].entryId === +dataEntryId) {
+      entryIdObj = data.entries[i];
+    }
+  }
   data.editing = entryIdObj;
   $title.value = data.editing.title;
   $url.value = data.editing.imageUrl;
@@ -178,5 +186,22 @@ function hidePopUp(event) {
 $confirmButton.addEventListener('click', deleteEntry);
 
 function deleteEntry(event) {
-
+  const entryId = data.editing.entryId;
+  let entryObjIndex = 0;
+  for (let i = 0; i < data.entries.length; i++) {
+    if (entryId === data.entries[i].entryId) {
+      entryObjIndex = i;
+    }
+  }
+  data.entries.splice(entryObjIndex, 1);
+  const $entryListItem = document.querySelector(`[data-entry-id="${entryId}"]`);
+  $img.src = 'images/placeholder-image-square.jpg';
+  $img.classList.replace('object-contain', 'object-cover');
+  $entryListItem.remove();
+  toggleNoEntries();
+  viewSwap('entries');
+  data.editing = null;
+  formTypeSwap(data.editing);
+  $form.reset();
+  $popup.classList.add('hidden');
 }
